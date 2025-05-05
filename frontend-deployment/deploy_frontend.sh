@@ -5,7 +5,7 @@ FRONTEND_PATH="$DIR/../frontend"
 FRONTEND_BUILD_PATH="$DIR/../frontend/dist"
 AWS_REGION="$(aws configure get region)"
 if [ -z "$AWS_REGION" ]; then
-    AWS_REGION="us-west-2";
+    AWS_REGION="eu-west-2";
 fi
 S3_BUCKET_NAME="$PROJECT_NAME-frontend-$(aws sts get-caller-identity --query Account --output text)"
 

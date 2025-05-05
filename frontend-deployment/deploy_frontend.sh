@@ -10,7 +10,7 @@ fi
 S3_BUCKET_NAME="$PROJECT_NAME-frontend-$(aws sts get-caller-identity --query Account --output text)"
 
 cd ${FRONTEND_PATH} && \
-npm run build -- --prod
+ng build --configuration production
 aws s3 mb s3://$S3_BUCKET_NAME --region $AWS_REGION || true
 aws s3 website s3://$S3_BUCKET_NAME --index index.html --error index.html
 aws s3 rm s3://$S3_BUCKET_NAME --recursive
